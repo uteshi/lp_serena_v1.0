@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serena Enxovais</title>
+
+    <link rel="icon" type="image/svg+xml" href="favicon_SERENA.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        serena: { bg: '#FDFCF8', gold: '#B59556', green: '#1F4E3D', red: '#A6262E', text: '#333333', light: '#F4F1EA' }
+                    },
+                    fontFamily: { serif: ['Playfair Display', 'serif'], sans: ['Lato', 'sans-serif'], }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Lato', sans-serif; background-color: #FDFCF8; color: #333333; }
+        h1, h2, h3, h4, .brand-font { font-family: 'Playfair Display', serif; }
+        .smooth-scroll { scroll-behavior: smooth; }
+        .swiper-button-next, .swiper-button-prev { color: #B59556 !important; background: rgba(255,255,255,0.8); padding: 30px 20px; border-radius: 8px; backdrop-filter: blur(4px); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .swiper-button-next:hover, .swiper-button-prev:hover { background: #B59556; color: white !important; transition: 0.3s; }
+        .swiper-pagination-bullet-active { background-color: #1F4E3D !important; }
+        /* Scroll customizado para o carrinho */
+        #cart-items::-webkit-scrollbar { width: 4px; }
+        #cart-items::-webkit-scrollbar-thumb { background-color: #E5DCC5; border-radius: 4px; }
+    </style>
+</head>
+<body class="smooth-scroll">
+
+    <div class="bg-serena-green text-white text-[10px] md:text-xs py-2 text-center tracking-[0.2em] uppercase font-bold">
+        Frete do site reduzido | Compre 1 kit e ganhe 2 travesseiros
+    </div>
+
+    <header class="sticky top-0 z-50 bg-[#FDFCF8]/95 backdrop-blur-md shadow-sm border-b border-[#E5DCC5]">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center h-20">
+            <button class="md:hidden text-serena-green"><i data-lucide="menu"></i></button>
+            <div class="flex-grow md:flex-grow-0 flex justify-center">
+                <img src="Logo Serena PNG (fundo transparente).png" alt="Serena Enxovais" class="h-14 md:h-16 object-contain">
+            </div>
+            <div class="flex gap-5 text-serena-green">
+                <button class="hidden md:block"><i data-lucide="search" class="w-5 h-5"></i></button>
+                <button onclick="toggleCart()" class="relative hover:text-serena-gold transition-colors">
+                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    <span id="cart-badge" class="absolute -top-2 -right-2 bg-serena-red text-white text-[9px] font-bold h-4 w-4 rounded-full flex items-center justify-center">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative h-[75vh] md:h-[85vh] w-full bg-gray-100 overflow-hidden">
+        <div class="swiper heroSwiper w-full h-full">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide relative w-full h-full flex flex-col justify-end pb-16 md:justify-center md:pb-0">
+                    <img src="BANNER_1_DESKTOP.jpg" alt="Banner Serena Desktop" class="hidden md:block absolute inset-0 w-full h-full object-cover">
+                    <img src="BANNER_1_MOBILE.jpg" alt="Banner Serena Mobile" class="block md:hidden absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80"></div>
+                    <div class="relative z-10 container mx-auto px-6 h-full flex flex-col justify-end pb-12 md:justify-center items-center md:items-start text-white">
+                        <div class="md:max-w-2xl mt-auto md:mt-[300px]">
+                            <a href="#catalogo" class="inline-block bg-white text-serena-green hover:bg-serena-gold hover:text-white transition-all duration-300 px-10 py-4 uppercase tracking-[0.15em] text-xs font-bold shadow-2xl border border-white/20 hover:scale-105 transform">Ver Coleção Completa</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide relative w-full h-full">
+                    <img src="BANNER_2_DESKTOP.jpg" alt="Banner Serena Desktop" class="hidden md:block absolute inset-0 w-full h-full object-cover">
+                    <img src="BANNER_2_MOBILE.jpg" alt="Banner Serena Mobile" class="block md:hidden absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+                    <div class="relative z-10 container mx-auto px-6 h-full flex flex-col justify-end pb-20 md:justify-center md:pb-0 items-start text-white">
+                        <div class="md:max-w-2xl">
+                            <div class="flex items-center gap-3 mb-4"><div class="h-[1px] w-12 bg-white"></div><span class="uppercase tracking-[0.3em] text-xs font-bold">Coleção Itália</span></div>
+                            <h1 class="text-5xl md:text-7xl font-serif mb-6 leading-none shadow-sm">A Sofisticação <br> <i class="font-light italic">Mora nos Detalhes.</i></h1>
+                            <p class="text-lg font-light mb-8 max-w-lg opacity-90 leading-relaxed hover:opacity-100 transition-opacity">Kits de Cobre Leito inspirados no design europeu. Toque acetinado, matelassê com acabamento em viés e envio garantido.</p>
+                            <a href="#catalogo" class="inline-block bg-white text-serena-green hover:bg-serena-gold hover:text-white transition-all duration-300 px-10 py-4 uppercase tracking-[0.15em] text-xs font-bold shadow-2xl border border-white/20">Ver Coleção Completa</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination hero-pagination !bottom-6"></div>
+            <div class="swiper-button-next hero-next hidden md:flex !text-white !opacity-50 hover:!opacity-100 hover:!bg-transparent hover:scale-110"></div>
+            <div class="swiper-button-prev hero-prev hidden md:flex !text-white !opacity-50 hover:!opacity-100 hover:!bg-transparent hover:scale-110"></div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-serena-light border-b border-[#E5DCC5]">
+        <div class="container mx-auto px-6">
+            <h2 class="text-center text-xl md:text-2xl font-serif text-serena-green mb-8">Sua experiência de compra em 3 passos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                <div class="hidden md:block absolute top-1/2 left-[15%] right-[15%] h-[1px] border-t border-dashed border-serena-gold/50 z-0"></div>
+                
+                <div class="relative z-10 flex flex-col items-center text-center bg-serena-light">
+                    <div class="w-12 h-12 rounded-full bg-white border border-serena-gold text-serena-gold flex items-center justify-center font-bold text-lg mb-4 shadow-sm"><i data-lucide="mouse-pointer-click" class="w-5 h-5"></i></div>
+                    <h3 class="font-bold text-serena-green mb-2 text-sm uppercase tracking-widest">1. Escolha</h3>
+                    <p class="text-xs text-gray-500">Selecione o modelo e o tamanho ideal para sua cama no catálogo abaixo.</p>
+                </div>
+                
+                <div class="relative z-10 flex flex-col items-center text-center bg-serena-light">
+                    <div class="w-12 h-12 rounded-full bg-white border border-serena-gold text-serena-gold flex items-center justify-center font-bold text-lg mb-4 shadow-sm"><i data-lucide="calculator" class="w-5 h-5"></i></div>
+                    <h3 class="font-bold text-serena-green mb-2 text-sm uppercase tracking-widest">2. Calcule o Frete</h3>
+                    <p class="text-xs text-gray-500">Na sua sacola, digite seu CEP para cotar PAC, Sedex ou Transportadora.</p>
+                </div>
+                
+                <div class="relative z-10 flex flex-col items-center text-center bg-serena-light">
+                    <div class="w-12 h-12 rounded-full bg-serena-green border border-serena-green text-white flex items-center justify-center font-bold text-lg mb-4 shadow-sm hover:scale-110 transition-transform"><i data-lucide="message-circle" class="w-5 h-5"></i></div>
+                    <h3 class="font-bold text-serena-green mb-2 text-sm uppercase tracking-widest">3. WhatsApp</h3>
+                    <p class="text-xs text-gray-500">Finalize o pedido diretamente com nossa equipe VIP pelo WhatsApp.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="catalogo" class="py-20 bg-serena-bg overflow-hidden border-t border-[#E5DCC5]">
+        <div class="container mx-auto px-6 relative">
+            <div class="text-center mb-16 relative z-10">
+                <span class="text-serena-gold uppercase tracking-[0.2em] text-xs font-bold">Coleção Completa</span>
+                <h2 class="text-4xl md:text-5xl font-serif text-serena-green mt-3">Descubra a Itália</h2>
+                <div class="w-24 h-1 bg-serena-gold mx-auto mt-6"></div>
+            </div>
+
+            <div class="swiper catalogoSwiper !pb-20 px-2 md:px-10">
+                <div class="swiper-wrapper" id="produtos-container"></div>
+                <div class="swiper-pagination !bottom-4"></div>
+                <div class="swiper-button-next !right-0 hidden md:flex hover:scale-105 transition-transform"></div>
+                <div class="swiper-button-prev !left-0 hidden md:flex hover:scale-105 transition-transform"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-[#F5F5F5] border-t border-[#E5DCC5]">
+        <div class="container mx-auto px-6">
+            <div class="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500">
+                <div class="bg-[#2D3277] p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-white p-3 rounded-full h-16 w-16 flex items-center justify-center shadow-lg hover:scale-110 transition-transform"><img src="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.18.9/mercadolibre/logo__small.png" alt="Logo ML" class="h-8"></div>
+                        <div>
+                            <h2 class="text-white font-serif text-2xl md:text-3xl">Loja Oficial Serena</h2>
+                            <p class="text-blue-200 text-sm flex items-center gap-2 mt-1"><i data-lucide="medal" class="w-4 h-4 text-[#ffe600]"></i> MercadoLíder Platinum • Compra 100% Segura</p>
+                        </div>
+                    </div>
+                    <a href="https://www.mercadolivre.com.br/pagina/antprimeexpress" target="_blank" class="bg-[#ffe600] hover:bg-[#fff059] text-[#2d3277] px-8 py-3 rounded-full font-bold text-sm uppercase tracking-wider transition-all shadow-md transform hover:scale-105 text-center">Ver Loja Completa</a>
+                </div>
+                <div class="p-8 md:p-12">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <a href="https://meli.la/1zFbRiW" target="_blank" class="group border border-gray-100 rounded-lg p-4 hover:shadow-lg transition-all duration-300">
+                            <div class="relative aspect-square mb-4 overflow-hidden rounded bg-gray-50">
+                                <img src="COBRE_LEITOS/ALBA/ALBA_ML_SITE.jpg" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute top-2 right-2 bg-white px-2 py-1 rounded shadow text-[10px] font-bold text-[#00a650] flex items-center gap-1"><i data-lucide="zap" class="w-3 h-3 fill-current"></i> FULL</div>
+                            </div>
+                            <h4 class="font-serif text-gray-900 text-lg mb-2">Kit Colcha Alba - Casal</h4>
+                            <div class="flex justify-between items-end border-t border-gray-100 pt-3 mt-2">
+                                <div class="text-[#2d3277] font-bold text-xl"><span class="text-xs text-gray-400 line-through block">R$ 115,00</span>R$ 98,48</div>
+                                <span class="text-[10px] font-bold text-[#3483fa] uppercase tracking-wide group-hover:underline text-right max-w-[120px]">Garantir Promoção</span>
+                            </div>
+                        </a>
+                        <a href="https://meli.la/2Ncw2vT" target="_blank" class="group border border-gray-100 rounded-lg p-4 hover:shadow-lg transition-all duration-300 hidden md:block">
+                            <div class="relative aspect-square mb-4 overflow-hidden rounded bg-gray-50">
+                                <img src="COBRE_LEITOS/PADUA/PADUA_ML_SITE.jpg" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute top-2 right-2 bg-white px-2 py-1 rounded shadow text-[10px] font-bold text-[#00a650] flex items-center gap-1"><i data-lucide="zap" class="w-3 h-3 fill-current"></i> FULL</div>
+                            </div>
+                            <h4 class="font-serif text-gray-900 text-lg mb-2">Kit Colcha Pádua - Queen</h4>
+                            <div class="flex justify-between items-end border-t border-gray-100 pt-3 mt-2">
+                                <div class="text-[#2d3277] font-bold text-xl"><span class="text-xs text-gray-400 line-through block">R$ 129,00</span>R$ 109,65</div>
+                                <span class="text-[10px] font-bold text-[#3483fa] uppercase tracking-wide group-hover:underline text-right max-w-[120px]">Garantir Promoção</span>
+                            </div>
+                        </a>
+                        <a href="https://meli.la/1qMUaDW" target="_blank" class="group border border-gray-100 rounded-lg p-4 hover:shadow-lg transition-all duration-300 hidden md:block">
+                            <div class="relative aspect-square mb-4 overflow-hidden rounded bg-gray-50">
+                                <img src="COBRE_LEITOS/FLORENCA/FLORENCA_ML_SITE.jpg" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute top-2 right-2 bg-white px-2 py-1 rounded shadow text-[10px] font-bold text-[#00a650] flex items-center gap-1"><i data-lucide="zap" class="w-3 h-3 fill-current"></i> FULL</div>
+                            </div>
+                            <h4 class="font-serif text-gray-900 text-lg mb-2">Kit Colcha Florença - King</h4>
+                            <div class="flex justify-between items-end border-t border-gray-100 pt-3 mt-2">
+                                <div class="text-[#2d3277] font-bold text-xl"><span class="text-xs text-gray-400 line-through block">R$ 179,00</span>R$ 154,53</div>
+                                <span class="text-[10px] font-bold text-[#3483fa] uppercase tracking-wide group-hover:underline text-right max-w-[120px]">Garantir Promoção</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="cart-drawer" class="fixed inset-y-0 right-0 w-full md:w-[400px] bg-white shadow-2xl z-[60] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col">
+        <div class="bg-serena-green text-white p-5 flex justify-between items-center shadow-md z-10">
+            <h3 class="font-serif text-xl flex items-center gap-2"><i data-lucide="shopping-bag" class="w-5 h-5"></i> Sua Sacola</h3>
+            <button onclick="toggleCart()" class="text-white hover:text-serena-gold transition"><i data-lucide="x" class="w-6 h-6"></i></button>
+        </div>
+        
+        <div id="cart-items" class="flex-grow p-5 overflow-y-auto flex flex-col gap-4 bg-gray-50/50">
+            <p class="text-gray-400 text-sm text-center mt-10">Sua sacola está vazia.</p>
+        </div>
+        
+        <div class="p-5 border-t border-gray-200 bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+            <div id="frete-module" class="hidden">
+                <label class="text-xs font-bold text-gray-700 uppercase tracking-widest mb-2 block">Calcule o Frete</label>
+                <div class="flex gap-2 mb-3">
+                    <input type="text" id="cep-input" placeholder="00000-000" maxlength="9" oninput="maskCEP(this)" class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-serena-green transition-colors">
+                    <button onclick="calcularFrete()" class="bg-serena-gold text-white px-4 py-2 rounded text-xs font-bold uppercase tracking-widest hover:bg-yellow-600 transition-colors">OK</button>
+                </div>
+                <div id="frete-loading" class="hidden text-center py-2 text-xs text-gray-500"><i data-lucide="loader-2" class="w-4 h-4 animate-spin inline mr-1"></i> Calculando rotas...</div>
+                
+                <div id="frete-options" class="space-y-2 mb-4 hidden"></div>
+            </div>
+
+            <div class="space-y-2 mt-4 mb-4">
+                <div class="flex justify-between text-xs text-gray-500">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal">R$ 0,00</span>
+                </div>
+                <div class="flex justify-between text-xs text-gray-500">
+                    <span>Frete</span>
+                    <span id="cart-frete-value">Calculado na próxima etapa</span>
+                </div>
+                <div class="flex justify-between items-center pt-2 border-t border-gray-100">
+                    <span class="text-serena-green font-bold uppercase tracking-widest text-sm">Total</span>
+                    <span id="cart-total" class="font-serif text-2xl font-bold text-serena-green">R$ 0,00</span>
+                </div>
+            </div>
+            
+            <button onclick="checkoutWhatsApp()" class="w-full bg-[#25D366] text-white py-4 rounded font-bold uppercase tracking-widest text-[11px] hover:bg-[#1ebd5a] transition shadow-lg flex justify-center items-center gap-2 transform hover:scale-[1.02]">
+                <i data-lucide="message-circle" class="w-5 h-5"></i> Finalizar no WhatsApp
+            </button>
+        </div>
+    </div>
+    <div id="cart-overlay" onclick="toggleCart()" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[55] hidden opacity-0 transition-opacity duration-500"></div>
+
+    <footer class="bg-serena-green text-white pt-20 pb-10 border-t-4 border-serena-gold mt-10">
+        <div class="container mx-auto px-6 text-center">
+            <img src="Logo Serena PNG (fundo transparente).png" alt="Serena Enxovais" class="h-12 object-contain mx-auto mb-6 filter brightness-0 invert">
+            <p class="text-gray-300 text-sm mb-6 max-w-md mx-auto">Redefinindo o conceito de cama posta com a tradição do design italiano.</p>
+            <p class="text-gray-400 text-xs">&copy; 2026 Serena Enxovais. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            // 1. BASE DE DADOS
+            const tamanhoData = {
+                'solteiro': { nome: 'Solteiro', preco: 89.90, precoTxt: 'R$ 99,90', colcha: '1,80m x 2,20m', fronhas: '1 Porta-travesseiro' },
+                'casal':    { nome: 'Casal',    preco: 119.90, precoTxt: 'R$ 129,90', colcha: '2,20m x 2,40m', fronhas: '2 Porta-travesseiros' },
+                'queen':    { nome: 'Queen',    preco: 149.90, precoTxt: 'R$ 159,90', colcha: '2,40m x 2,60m', fronhas: '2 Porta-travesseiros' },
+                'king':     { nome: 'King',     preco: 179.90, precoTxt: 'R$ 189,90', colcha: '2,60m x 2,80m', fronhas: '2 Porta-travesseiros' }
+            };
+
+            const modelos = [
+                { id: 'ALBA', nome: 'Alba' }, { id: 'ANDRIA', nome: 'Andria' }, { id: 'FERRARA', nome: 'Ferrara' },
+                { id: 'FLORENCA', nome: 'Florença' }, { id: 'GENOVA', nome: 'Gênova' }, { id: 'MILAO', nome: 'Milão' },
+                { id: 'NAPOLES', nome: 'Nápoles' }, { id: 'PADUA', nome: 'Pádua' }, { id: 'PALERMO', nome: 'Palermo' },
+                { id: 'PISA', nome: 'Pisa' }, { id: 'ROMA', nome: 'Roma' }, { id: 'SICILIA', nome: 'Sicília' },
+                { id: 'TURIM', nome: 'Turim' }, { id: 'VENEZA', nome: 'Veneza' }, { id: 'VERONA', nome: 'Verona' }
+            ];
+
+            const container = document.getElementById('produtos-container');
+
+            // 2. GERAÇÃO DINÂMICA DOS CARDS
+            modelos.forEach(modelo => {
+                const slide = document.createElement('div');
+                slide.className = 'swiper-slide flex h-auto p-2';
+                slide.innerHTML = `
+                    <div class="group flex flex-col w-full bg-white border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden rounded-md" id="prod-${modelo.id}">
+                        <div class="relative aspect-[4/3] overflow-hidden bg-gray-50">
+                            <img src="COBRE_LEITOS/${modelo.id}/KITS_${modelo.id}.jpeg" alt="Kit ${modelo.nome}" class="w-full h-full object-contain transform group-hover:scale-105 transition duration-1000 ease-out">
+                            <div class="absolute top-0 left-29 flex flex-col gap-2 scale-90 md:scale-100"><span class="bg-serena-green text-white text-[10px] uppercase font-bold px-3 py-1 tracking-widest shadow-md">Design Italiano</span></div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="text-center mb-4"><h3 class="text-2xl font-serif text-gray-900 mb-1">Kit Colcha ${modelo.nome}</h3><p class="text-[10px] text-serena-gold font-bold uppercase tracking-[0.2em] mb-2 flex justify-center items-center gap-2"><i data-lucide="shield-check" class="w-3 h-3"></i> Micropercal 260g</p></div>
+                            <div class="mb-4 h-16 flex flex-col justify-center text-center"><span class="text-[11px] text-gray-400 block mb-1 tracking-wider uppercase">Valor do Kit</span><span class="text-3xl font-serif font-bold text-serena-green price-display transition-all duration-300 transform scale-100 group-hover:scale-110">${tamanhoData['casal'].precoTxt}</span></div>
+                            <div class="bg-serena-light/50 border border-gray-100 rounded p-3 mb-6 text-center h-[70px] flex flex-col justify-center"><p class="text-xs text-gray-700 font-medium dim-colcha">Colcha: ${tamanhoData['casal'].colcha}</p><p class="text-[10px] text-gray-500 mt-1 dim-fronhas">${tamanhoData['casal'].fronhas}</p></div>
+                            <div class="flex justify-center flex-wrap gap-2 mb-6 size-selector">
+                                ${Object.keys(tamanhoData).map(key => `<button onclick="window.selectSize(this, 'prod-${modelo.id}', '${key}')" class="px-2.5 py-1.5 text-[11px] border rounded-sm transition-all duration-300 ${key === 'casal' ? 'border-serena-green bg-serena-green text-white font-bold shadow-md scale-105 active-size' : 'border-gray-300 text-gray-600 hover:border-serena-green'}">${tamanhoData[key].nome}</button>`).join('')}
+                            </div>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <button onclick="window.addToCart('${modelo.id}', '${modelo.nome}')" class="flex items-center justify-center gap-2 w-full bg-serena-green text-white hover:bg-serena-gold py-4 uppercase text-xs font-bold tracking-widest transition-all duration-300 shadow-md hover:-translate-y-1 transform">Adicionar à Sacola <i data-lucide="shopping-bag" class="w-4 h-4"></i></button>
+                            </div>
+                        </div>
+                    </div>`;
+                container.appendChild(slide);
+            });
+
+            // INICIALIZAR SWIPERS
+            new Swiper('.heroSwiper', { slidesPerView: 1, loop: true, effect: 'fade', autoplay: { delay: 5000, disableOnInteraction: false }, pagination: { el: '.hero-pagination', clickable: true }, navigation: { nextEl: '.hero-next', prevEl: '.hero-prev' } });
+            new Swiper('.catalogoSwiper', { slidesPerView: 1, spaceBetween: 20, grabCursor: true, pagination: { el: '.swiper-pagination', clickable: true, dynamicBullets: true }, navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }, breakpoints: { 640: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 3, spaceBetween: 30 } } });
+
+            // INICIALIZA ÍCONES
+            lucide.createIcons();
+            
+            // SELEÇÃO DE TAMANHO NOS CARDS
+            window.selectSize = function(buttonElement, productId, sizeKey) {
+                const productCard = document.getElementById(productId);
+                const data = tamanhoData[sizeKey];
+                
+                const allButtons = productCard.querySelectorAll('.size-selector button');
+                allButtons.forEach(btn => { btn.classList.remove('border-serena-green', 'bg-serena-green', 'text-white', 'shadow-md', 'scale-105', 'active-size'); btn.classList.add('border-gray-300', 'text-gray-600'); });
+                buttonElement.classList.remove('border-gray-300', 'text-gray-600');
+                buttonElement.classList.add('border-serena-green', 'bg-serena-green', 'text-white', 'shadow-md', 'scale-105', 'active-size');
+
+                const priceDisplay = productCard.querySelector('.price-display');
+                const dimColcha = productCard.querySelector('.dim-colcha');
+                const dimFronhas = productCard.querySelector('.dim-fronhas');
+
+                priceDisplay.style.opacity = 0; dimColcha.style.opacity = 0; dimFronhas.style.opacity = 0;
+                setTimeout(() => {
+                    priceDisplay.innerText = data.precoTxt;
+                    dimColcha.innerText = `Colcha: ${data.colcha}`;
+                    dimFronhas.innerText = data.fronhas;
+                    priceDisplay.style.opacity = 1; dimColcha.style.opacity = 1; dimFronhas.style.opacity = 1;
+                }, 150);
+            };
+
+            // ==========================================
+            // LÓGICA DO CARRINHO E FRETE (VIA WHATSAPP)
+            // ==========================================
+            let cart = [];
+            let subtotalCart = 0;
+            let valorFrete = 0;
+            let tipoFrete = "";
+            let localidadeFrete = "";
+            const numeroWhatsApp = "5511999999999"; // COLOQUE SEU NÚMERO AQUI
+
+            // Funções Visuais do Carrinho
+            window.toggleCart = function() {
+                const drawer = document.getElementById('cart-drawer');
+                const overlay = document.getElementById('cart-overlay');
+                if (drawer.classList.contains('translate-x-full')) {
+                    drawer.classList.remove('translate-x-full'); overlay.classList.remove('hidden'); setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+                } else {
+                    drawer.classList.add('translate-x-full'); overlay.classList.add('opacity-0'); setTimeout(() => overlay.classList.add('hidden'), 500);
+                }
+            };
+
+            window.addToCart = function(modeloId, modeloNome) {
+                const productCard = document.getElementById(`prod-${modeloId}`);
+                const activeBtn = productCard.querySelector('.active-size');
+                const tamanhoNome = activeBtn ? activeBtn.innerText : 'Casal';
+                
+                // Encontra a chave do tamanho ignorando maiúsculas
+                const sizeKey = Object.keys(tamanhoData).find(key => tamanhoData[key].nome === tamanhoNome) || 'casal';
+                const precoValue = tamanhoData[sizeKey].preco;
+                const precoTxt = tamanhoData[sizeKey].precoTxt;
+
+                cart.push({ id: modeloId, nome: modeloNome, tamanho: tamanhoNome, preco: precoValue, precoTxt: precoTxt });
+                updateCartUI();
+                toggleCart();
+            };
+
+            window.removeFromCart = function(index) {
+                cart.splice(index, 1);
+                // Se esvaziar o carrinho, zera o frete
+                if(cart.length === 0) { valorFrete = 0; tipoFrete = ""; document.getElementById('frete-options').innerHTML = ''; document.getElementById('cep-input').value = ''; }
+                updateCartUI();
+            };
+
+            window.updateCartUI = function() {
+                const cartContainer = document.getElementById('cart-items');
+                const freteModule = document.getElementById('frete-module');
+                document.getElementById('cart-badge').innerText = cart.length;
+
+                if (cart.length === 0) {
+                    cartContainer.innerHTML = '<div class="flex flex-col items-center justify-center h-full opacity-50"><i data-lucide="shopping-cart" class="w-12 h-12 mb-2"></i><p class="text-sm">Sua sacola está vazia.</p></div>';
+                    freteModule.classList.add('hidden');
+                    subtotalCart = 0;
+                } else {
+                    cartContainer.innerHTML = '';
+                    subtotalCart = 0;
+                    freteModule.classList.remove('hidden');
+
+                    cart.forEach((item, index) => {
+                        subtotalCart += item.preco;
+                        cartContainer.innerHTML += `
+                            <div class="flex justify-between items-center bg-white border border-gray-100 p-3 rounded-lg shadow-sm">
+                                <div>
+                                    <h4 class="font-serif text-gray-800 text-sm font-bold leading-tight">Kit ${item.nome}</h4>
+                                    <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">${item.tamanho}</p>
+                                    <p class="text-serena-green font-bold text-sm mt-1">${item.precoTxt}</p>
+                                </div>
+                                <button onclick="removeFromCart(${index})" class="text-gray-300 hover:text-serena-red transition p-2 bg-gray-50 rounded"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                            </div>
+                        `;
+                    });
+                }
+
+                // Atualiza Resumo de Valores
+                document.getElementById('cart-subtotal').innerText = subtotalCart.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+                document.getElementById('cart-frete-value').innerText = valorFrete > 0 ? valorFrete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : (tipoFrete ? "Grátis" : "---");
+                
+                const totalFinal = subtotalCart + valorFrete;
+                document.getElementById('cart-total').innerText = totalFinal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+                lucide.createIcons();
+            };
+
+            // Módulo de Frete Simulado via ViaCEP (Frontend Seguro)
+            window.maskCEP = function(input) {
+                input.value = input.value.replace(/\D/g, '').replace(/^(\d{5})(\d)/, '$1-$2').substring(0, 9);
+            };
+
+            window.calcularFrete = async function() {
+                const cepInput = document.getElementById('cep-input').value.replace(/\D/g, '');
+                if(cepInput.length !== 8) { alert("Por favor, digite um CEP válido com 8 números."); return; }
+
+                document.getElementById('frete-loading').classList.remove('hidden');
+                document.getElementById('frete-options').classList.add('hidden');
+
+                try {
+                    // Busca localidade real
+                    const res = await fetch(`https://viacep.com.br/ws/${cepInput}/json/`);
+                    const data = await res.json();
+                    
+                    if(data.erro) throw new Error("CEP não encontrado.");
+                    localidadeFrete = `${data.localidade}/${data.uf}`;
+
+                    // Lógica de cálculo de frete realista para Front-end
+                    // Sul e Sudeste costumam ser mais baratos. 
+                    const ufsSudesteSul = ['SP', 'RJ', 'MG', 'ES', 'PR', 'SC', 'RS'];
+                    const isBarato = ufsSudesteSul.includes(data.uf);
+
+                    // Multiplicador por quantidade de itens na sacola
+                    const pesoMultiplicador = 1 + ((cart.length - 1) * 0.4); 
+
+                    const basePac = isBarato ? 24.90 : 48.90;
+                    const baseSedex = isBarato ? 38.90 : 85.90;
+
+                    const valorFinalPac = basePac * pesoMultiplicador;
+                    const valorFinalSedex = baseSedex * pesoMultiplicador;
+                    const valorFinalTransp = valorFinalSedex * 1.15; // Transportadora 15% a mais que Sedex
+
+                    renderFreteOptions(valorFinalPac, valorFinalSedex, valorFinalTransp, localidadeFrete);
+
+                } catch (error) {
+                    alert("Não foi possível calcular o frete para este CEP no momento.");
+                } finally {
+                    document.getElementById('frete-loading').classList.add('hidden');
+                }
+            };
+
+            function renderFreteOptions(pac, sedex, transp, local) {
+                const box = document.getElementById('frete-options');
+                box.innerHTML = `<p class="text-[10px] text-gray-500 mb-2 font-medium"><i data-lucide="map-pin" class="w-3 h-3 inline"></i> Enviando para: ${local}</p>`;
+                
+                // PAC - Pré Selecionado (Recomendação Serena)
+                box.innerHTML += createFreteRadio('PAC (Econômico)', pac, 8, true);
+                box.innerHTML += createFreteRadio('SEDEX (Expresso)', sedex, 3, false);
+                box.innerHTML += createFreteRadio('Transportadora', transp, 4, false);
+                
+                box.classList.remove('hidden');
+                lucide.createIcons();
+                
+                // Força a seleção do PAC inicialmente
+                selectFrete('PAC (Econômico)', pac);
+            }
+
+            function createFreteRadio(nome, valor, dias, isChecked) {
+                const valorTxt = valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+                const destaque = isChecked ? '<span class="bg-serena-green text-white text-[8px] uppercase px-1.5 py-0.5 rounded ml-2">Recomendado</span>' : '';
+                return `
+                    <label class="flex items-center justify-between p-2 border ${isChecked ? 'border-serena-green bg-serena-green/5' : 'border-gray-200'} rounded cursor-pointer hover:border-serena-green transition-colors" onclick="selectFrete('${nome}', ${valor}, this)">
+                        <div class="flex items-center gap-2">
+                            <input type="radio" name="frete_op" value="${valor}" ${isChecked ? 'checked' : ''} class="text-serena-green focus:ring-serena-green">
+                            <div>
+                                <p class="text-xs font-bold text-gray-800">${nome} ${destaque}</p>
+                                <p class="text-[9px] text-gray-500">Chega em aprox. ${dias} dias úteis</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-bold text-gray-800">${valorTxt}</span>
+                    </label>
+                `;
+            }
+
+            window.selectFrete = function(nome, valor, element = null) {
+                tipoFrete = nome;
+                valorFrete = valor;
+                
+                // Atualiza visual dos radios se foi clicado
+                if(element) {
+                    document.querySelectorAll('input[name="frete_op"]').forEach(el => {
+                        el.closest('label').classList.remove('border-serena-green', 'bg-serena-green/5');
+                        el.closest('label').classList.add('border-gray-200');
+                    });
+                    element.classList.remove('border-gray-200');
+                    element.classList.add('border-serena-green', 'bg-serena-green/5');
+                    element.querySelector('input').checked = true;
+                }
+                
+                updateCartUI();
+            };
+
+            // Fechamento no WhatsApp
+            window.checkoutWhatsApp = function() {
+                if (cart.length === 0) { alert("Sua sacola está vazia!"); return; }
+
+                let texto = "Olá, Serena Enxovais! Gostaria de finalizar meu pedido VIP:%0A%0A";
+                
+                cart.forEach(item => { texto += `🛍️ *Kit ${item.nome}* (${item.tamanho}) - ${item.precoTxt}%0A`; });
+
+                const subtotalFormatado = subtotalCart.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+                texto += `%0A📦 *Subtotal:* ${subtotalFormatado}`;
+
+                if (valorFrete > 0) {
+                    const freteFormatado = valorFrete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+                    texto += `%0A🚚 *Frete (${tipoFrete}):* ${freteFormatado}`;
+                    texto += `%0A📍 *Destino:* ${localidadeFrete}`;
+                } else {
+                    texto += `%0A🚚 *Frete:* A Combinar/Calcular`;
+                }
+
+                const totalFinal = (subtotalCart + valorFrete).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+                texto += `%0A%0A💳 *TOTAL DO PEDIDO:* ${totalFinal}`;
+                texto += `%0A%0AAguardo as orientações para o pagamento!`;
+
+                const linkWpp = `https://wa.me/${numeroWhatsApp}?text=${texto}`;
+                window.open(linkWpp, '_blank');
+            };
+        });
+    </script>
+</body>
+</html>
