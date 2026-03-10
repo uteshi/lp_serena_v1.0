@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serena Enxovais</title>
-
+    <title>Serena Enxovais | A Arte do Sono</title>
+    
     <link rel="icon" type="image/svg+xml" href="favicon_SERENA.svg">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    
 
     <script>
         tailwind.config = {
@@ -21,7 +21,13 @@
                     colors: {
                         serena: { bg: '#FDFCF8', gold: '#B59556', green: '#1F4E3D', red: '#A6262E', text: '#333333', light: '#F4F1EA' }
                     },
-                    fontFamily: { serif: ['Playfair Display', 'serif'], sans: ['Lato', 'sans-serif'], }
+                    fontFamily: { serif: ['Playfair Display', 'serif'], sans: ['Lato', 'sans-serif'], },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0', transform: 'translateY(-10px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
+                    }
                 }
             }
         }
@@ -34,9 +40,8 @@
         .swiper-button-next, .swiper-button-prev { color: #B59556 !important; background: rgba(255,255,255,0.8); padding: 30px 20px; border-radius: 8px; backdrop-filter: blur(4px); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .swiper-button-next:hover, .swiper-button-prev:hover { background: #B59556; color: white !important; transition: 0.3s; }
         .swiper-pagination-bullet-active { background-color: #1F4E3D !important; }
-        /* Scroll customizado para o carrinho */
-        #cart-items::-webkit-scrollbar { width: 4px; }
-        #cart-items::-webkit-scrollbar-thumb { background-color: #E5DCC5; border-radius: 4px; }
+        #cart-items::-webkit-scrollbar, .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        #cart-items::-webkit-scrollbar-thumb, .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #E5DCC5; border-radius: 4px; }
     </style>
 </head>
 <body class="smooth-scroll">
@@ -82,7 +87,7 @@
                         <div class="md:max-w-2xl">
                             <div class="flex items-center gap-3 mb-4"><div class="h-[1px] w-12 bg-white"></div><span class="uppercase tracking-[0.3em] text-xs font-bold">Coleção Itália</span></div>
                             <h1 class="text-5xl md:text-7xl font-serif mb-6 leading-none shadow-sm">A Sofisticação <br> <i class="font-light italic">Mora nos Detalhes.</i></h1>
-                            <p class="text-lg font-light mb-8 max-w-lg opacity-90 leading-relaxed hover:opacity-100 transition-opacity">Kits de Cobre Leito inspirados no design europeu. Toque acetinado, matelassê com acabamento em viés e envio garantido.</p>
+                            <p class="text-lg font-light mb-8 max-w-lg opacity-90 leading-relaxed hover:opacity-100 transition-opacity">Kits de Cobre Leito inspirados no design europeu. Toque acetinado, matelassê com acabamento em viés e envio garantido via PAC para todo o Brasil.</p>
                             <a href="#catalogo" class="inline-block bg-white text-serena-green hover:bg-serena-gold hover:text-white transition-all duration-300 px-10 py-4 uppercase tracking-[0.15em] text-xs font-bold shadow-2xl border border-white/20">Ver Coleção Completa</a>
                         </div>
                     </div>
@@ -99,23 +104,20 @@
             <h2 class="text-center text-xl md:text-2xl font-serif text-serena-green mb-8">Sua experiência de compra em 3 passos</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
                 <div class="hidden md:block absolute top-1/2 left-[15%] right-[15%] h-[1px] border-t border-dashed border-serena-gold/50 z-0"></div>
-                
                 <div class="relative z-10 flex flex-col items-center text-center bg-serena-light">
                     <div class="w-12 h-12 rounded-full bg-white border border-serena-gold text-serena-gold flex items-center justify-center font-bold text-lg mb-4 shadow-sm"><i data-lucide="mouse-pointer-click" class="w-5 h-5"></i></div>
                     <h3 class="font-bold text-serena-green mb-2 text-sm uppercase tracking-widest">1. Escolha</h3>
                     <p class="text-xs text-gray-500">Selecione o modelo e o tamanho ideal para sua cama no catálogo abaixo.</p>
                 </div>
-                
                 <div class="relative z-10 flex flex-col items-center text-center bg-serena-light">
                     <div class="w-12 h-12 rounded-full bg-white border border-serena-gold text-serena-gold flex items-center justify-center font-bold text-lg mb-4 shadow-sm"><i data-lucide="calculator" class="w-5 h-5"></i></div>
                     <h3 class="font-bold text-serena-green mb-2 text-sm uppercase tracking-widest">2. Calcule o Frete</h3>
                     <p class="text-xs text-gray-500">Na sua sacola, digite seu CEP para cotar PAC, Sedex ou Transportadora.</p>
                 </div>
-                
                 <div class="relative z-10 flex flex-col items-center text-center bg-serena-light">
                     <div class="w-12 h-12 rounded-full bg-serena-green border border-serena-green text-white flex items-center justify-center font-bold text-lg mb-4 shadow-sm hover:scale-110 transition-transform"><i data-lucide="message-circle" class="w-5 h-5"></i></div>
                     <h3 class="font-bold text-serena-green mb-2 text-sm uppercase tracking-widest">3. WhatsApp</h3>
-                    <p class="text-xs text-gray-500">Finalize o pedido diretamente com nossa equipe VIP pelo WhatsApp.</p>
+                    <p class="text-xs text-gray-500">Finalize o pedido e pagamento com nossa equipe VIP pelo WhatsApp.</p>
                 </div>
             </div>
         </div>
@@ -134,7 +136,13 @@
                 <div class="swiper-pagination !bottom-4"></div>
                 <div class="swiper-button-next !right-0 hidden md:flex hover:scale-105 transition-transform"></div>
                 <div class="swiper-button-prev !left-0 hidden md:flex hover:scale-105 transition-transform"></div>
+                <div class="md:hidden flex items-center justify-center gap-2 text-serena-gold mt-8 mb-4 animate-pulse">
+                <span class="text-[10px] font-bold uppercase tracking-widest">Deslize para ver mais kits</span>
+                <i data-lucide="chevrons-right" class="w-4 h-4"></i>
+                </div>
             </div>
+
+            
         </div>
     </section>
 
@@ -143,7 +151,9 @@
             <div class="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500">
                 <div class="bg-[#2D3277] p-8 flex flex-col md:flex-row items-center justify-between gap-6">
                     <div class="flex items-center gap-4">
-                        <div class="bg-white p-3 rounded-full h-16 w-16 flex items-center justify-center shadow-lg hover:scale-110 transition-transform"><img src="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.18.9/mercadolibre/logo__small.png" alt="Logo ML" class="h-8"></div>
+                        <div class="bg-white p-3 rounded-full h-16 w-16 shrink-0 flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                            <img src="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.18.9/mercadolibre/logo__small.png" alt="Logo ML" class="h-8">
+                        </div>
                         <div>
                             <h2 class="text-white font-serif text-2xl md:text-3xl">Loja Oficial Serena</h2>
                             <p class="text-blue-200 text-sm flex items-center gap-2 mt-1"><i data-lucide="medal" class="w-4 h-4 text-[#ffe600]"></i> MercadoLíder Platinum • Compra 100% Segura</p>
@@ -156,7 +166,7 @@
                         <a href="https://meli.la/1zFbRiW" target="_blank" class="group border border-gray-100 rounded-lg p-4 hover:shadow-lg transition-all duration-300">
                             <div class="relative aspect-square mb-4 overflow-hidden rounded bg-gray-50">
                                 <img src="COBRE_LEITOS/ALBA/ALBA_ML_SITE.jpg" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                                <div class="absolute top-2 right-2 bg-white px-2 py-1 rounded shadow text-[10px] font-bold text-[#00a650] flex items-center gap-1"><i data-lucide="zap" class="w-3 h-3 fill-current"></i> FULL</div>
+                                <div class="absolute top-2 right-2 bg-white px-2 py-1 rounded shadow text-[10px] font-bold text-[#00a650] flex items-center gap-1 whitespace-nowrap shrink-0"><i data-lucide="zap" class="w-3 h-3 fill-current shrink-0"></i> FULL</div>
                             </div>
                             <h4 class="font-serif text-gray-900 text-lg mb-2">Kit Colcha Alba - Casal</h4>
                             <div class="flex justify-between items-end border-t border-gray-100 pt-3 mt-2">
@@ -167,7 +177,7 @@
                         <a href="https://meli.la/2Ncw2vT" target="_blank" class="group border border-gray-100 rounded-lg p-4 hover:shadow-lg transition-all duration-300 hidden md:block">
                             <div class="relative aspect-square mb-4 overflow-hidden rounded bg-gray-50">
                                 <img src="COBRE_LEITOS/PADUA/PADUA_ML_SITE.jpg" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                                <div class="absolute top-2 right-2 bg-white px-2 py-1 rounded shadow text-[10px] font-bold text-[#00a650] flex items-center gap-1"><i data-lucide="zap" class="w-3 h-3 fill-current"></i> FULL</div>
+                                <div class="absolute top-2 right-2 bg-white px-2 py-1 rounded shadow text-[10px] font-bold text-[#00a650] flex items-center gap-1 whitespace-nowrap shrink-0"><i data-lucide="zap" class="w-3 h-3 fill-current shrink-0"></i> FULL</div>
                             </div>
                             <h4 class="font-serif text-gray-900 text-lg mb-2">Kit Colcha Pádua - Queen</h4>
                             <div class="flex justify-between items-end border-t border-gray-100 pt-3 mt-2">
@@ -178,7 +188,7 @@
                         <a href="https://meli.la/1qMUaDW" target="_blank" class="group border border-gray-100 rounded-lg p-4 hover:shadow-lg transition-all duration-300 hidden md:block">
                             <div class="relative aspect-square mb-4 overflow-hidden rounded bg-gray-50">
                                 <img src="COBRE_LEITOS/FLORENCA/FLORENCA_ML_SITE.jpg" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                                <div class="absolute top-2 right-2 bg-white px-2 py-1 rounded shadow text-[10px] font-bold text-[#00a650] flex items-center gap-1"><i data-lucide="zap" class="w-3 h-3 fill-current"></i> FULL</div>
+                                <div class="absolute top-2 right-2 bg-white px-2 py-1 rounded shadow text-[10px] font-bold text-[#00a650] flex items-center gap-1 whitespace-nowrap shrink-0"><i data-lucide="zap" class="w-3 h-3 fill-current shrink-0"></i> FULL</div>
                             </div>
                             <h4 class="font-serif text-gray-900 text-lg mb-2">Kit Colcha Florença - King</h4>
                             <div class="flex justify-between items-end border-t border-gray-100 pt-3 mt-2">
@@ -191,6 +201,200 @@
             </div>
         </div>
     </section>
+
+    <section class="py-20 bg-serena-bg border-t border-[#E5DCC5]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-serena-gold uppercase tracking-[0.2em] text-xs font-bold">Experiência Serena</span>
+                <h2 class="text-3xl md:text-4xl font-serif text-serena-green mt-3">O que dizem os nossos clientes</h2>
+                <div class="w-24 h-1 bg-serena-gold mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow relative">
+                    <div class="absolute -top-4 right-8 bg-[#00a650] text-white text-[9px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md flex items-center gap-1">
+                        <i data-lucide="check-circle" class="w-3 h-3"></i> Compra Verificada
+                    </div>
+                    <div class="flex gap-1 text-serena-gold mb-4">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">
+                        "Surpreendeu-me muito! O tecido é realmente macio, não faz bolinhas e o acabamento é de primeira linha. Transformou o visual do meu quarto. Comprarei o modelo Florença no próximo mês!"
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                        <div class="w-10 h-10 bg-serena-light rounded-full flex items-center justify-center text-serena-green font-serif font-bold">M</div>
+                        <div>
+                            <p class="text-sm font-bold text-gray-800">Maria Fernanda S.</p>
+                            <p class="text-[10px] text-gray-400">Kit Colcha Alba - Casal</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow relative">
+                    <div class="absolute -top-4 right-8 bg-[#00a650] text-white text-[9px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md flex items-center gap-1">
+                        <i data-lucide="check-circle" class="w-3 h-3"></i> Compra Verificada
+                    </div>
+                    <div class="flex gap-1 text-serena-gold mb-4">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">
+                        "Excelente custo-benefício. Já comprei lençóis mais caros que não tinham este toque acetinado. A entrega foi super rápida, chegou no dia seguinte bem embalado e com um cheirinho ótimo."
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                        <div class="w-10 h-10 bg-serena-light rounded-full flex items-center justify-center text-serena-green font-serif font-bold">C</div>
+                        <div>
+                            <p class="text-sm font-bold text-gray-800">Carlos Eduardo M.</p>
+                            <p class="text-[10px] text-gray-400">Kit Colcha Pádua - Queen</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow relative">
+                    <div class="absolute -top-4 right-8 bg-[#00a650] text-white text-[9px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md flex items-center gap-1">
+                        <i data-lucide="check-circle" class="w-3 h-3"></i> Compra Verificada
+                    </div>
+                    <div class="flex gap-1 text-serena-gold mb-4">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6 italic">
+                        "Comprei com um pouco de receio por ser pela internet, mas o atendimento tirou todas as minhas dúvidas. O tamanho King ficou perfeito na minha cama, o caimento é muito elegante."
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                        <div class="w-10 h-10 bg-serena-light rounded-full flex items-center justify-center text-serena-green font-serif font-bold">A</div>
+                        <div>
+                            <p class="text-sm font-bold text-gray-800">Ana Paula C.</p>
+                            <p class="text-[10px] text-gray-400">Kit Colcha Florença - King</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="text-center mt-10">
+                <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-gray-200 shadow-sm">
+                    <img src="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.18.9/mercadolibre/logo__small.png" alt="Mercado Livre" class="h-4">
+                    <span class="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Mais de 5.000 clientes satisfeitos no Brasil</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white border-t border-[#E5DCC5]">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-serif text-serena-green">Dúvidas Frequentes</h2>
+                <p class="text-gray-500 text-sm mt-2">Transparência e segurança para a sua compra</p>
+            </div>
+            
+            <div class="space-y-4">
+                <details class="group border border-gray-100 rounded-md bg-gray-50 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex cursor-pointer items-center justify-between p-4 text-gray-900 font-bold text-sm">
+                        Políticas de Frete e Envio
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition duration-300 group-open:-rotate-180 text-serena-gold"></i>
+                    </summary>
+                    <div class="p-4 pt-0 text-sm text-gray-600 leading-relaxed border-t border-gray-100 mt-2">
+                        Trabalhamos com envios garantidos e rastreados para todo o Brasil. Nossa opção de envio padrão e mais recomendada é o <strong>PAC (Econômico)</strong>, mas também oferecemos Sedex e Transportadoras parceiras. O prazo é calculado na sacola. O despacho é realizado em até 24h úteis após a confirmação do pagamento.
+                    </div>
+                </details>
+                
+                <details class="group border border-gray-100 rounded-md bg-gray-50 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex cursor-pointer items-center justify-between p-4 text-gray-900 font-bold text-sm">
+                        Políticas de Troca e Reembolso
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition duration-300 group-open:-rotate-180 text-serena-gold"></i>
+                    </summary>
+                    <div class="p-4 pt-0 text-sm text-gray-600 leading-relaxed border-t border-gray-100 mt-2">
+                        Garantimos a qualidade do seu enxoval! Seguindo o Código de Defesa do Consumidor, você tem até 7 dias corridos após o recebimento para solicitar a devolução por arrependimento (o produto deve estar sem uso e na embalagem original). Para defeitos de fabricação, o prazo é de 30 dias. O reembolso é feito pelo mesmo meio de pagamento da compra.
+                    </div>
+                </details>
+                
+                <details class="group border border-gray-100 rounded-md bg-gray-50 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex cursor-pointer items-center justify-between p-4 text-gray-900 font-bold text-sm">
+                        Privacidade e Proteção de Dados (LGPD)
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition duration-300 group-open:-rotate-180 text-serena-gold"></i>
+                    </summary>
+                    <div class="p-4 pt-0 text-sm text-gray-600 leading-relaxed border-t border-gray-100 mt-2">
+                        A sua segurança é nossa prioridade. Em conformidade com a LGPD (Lei nº 13.709/2018), seus dados pessoais são coletados apenas para o faturamento e envio do pedido. Não vendemos ou compartilhamos suas informações. Seus dados financeiros são processados com criptografia e a Serena não tem acesso a números de cartão de crédito.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-serena-green text-white pt-16 border-t-4 border-serena-gold">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+            
+            <div class="text-center md:text-left">
+                <img src="Logo Serena PNG (fundo transparente).png" alt="Serena Enxovais" class="h-12 object-contain mx-auto md:mx-0 mb-6 filter brightness-0 invert">
+                <p class="text-gray-300 text-sm mb-6 leading-relaxed">
+                    Redefinindo o conceito de cama posta com a tradição do design italiano. Qualidade, sofisticação e o conforto que o seu sono merece.
+                </p>
+                <div class="flex justify-center md:justify-start mt-4">
+                    <a href="https://www.mercadolivre.com.br/pagina/antprimeexpress?item_id=MLB5469175694&category_id=MLB30063&seller_id=2477837945&client=recoview-selleritems&recos_listing=true#origin=upp&component=seller&typeSeller=eshop" 
+                       target="_blank" 
+                       class="group flex items-center gap-3 hover:opacity-80 transition-opacity duration-300">
+                        <img src="mercado-livre.svg" alt="Loja Oficial Mercado Livre" class="h-8 object-contain">
+                        <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-serena-gold group-hover:text-white transition-colors">Loja Oficial</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center md:text-left">
+                <h4 class="text-serena-gold font-bold text-xs uppercase tracking-[0.2em] mb-5">Atendimento & Sede</h4>
+                <div class="space-y-3 text-gray-300 text-sm">
+                    <p class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="phone" class="w-4 h-4"></i> (31) 99999-9999</p>
+                    <p class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="mail" class="w-4 h-4"></i> contato@serenaenxovais.com.br</p>
+                </div>
+                <div class="mt-6 pt-6 border-t border-white/10 text-xs text-gray-400 leading-relaxed">
+                    <strong class="text-gray-300">DLS COMÉRCIO LTDA</strong><br>
+                    CNPJ: 43.431.371/0001-30<br>
+                    Rua Icó, 158 - Bairro Saudade<br>
+                    Belo Horizonte/MG - CEP: 30285-040
+                </div>
+            </div>
+
+            <div class="text-center md:text-left">
+                <h4 class="text-serena-gold font-bold text-xs uppercase tracking-[0.2em] mb-5">Pagamento Seguro</h4>
+                <div class="bg-white/5 border border-white/10 p-3 rounded-lg mb-5 flex items-center justify-center md:justify-start gap-3">
+                    <i data-lucide="shield-check" class="w-8 h-8 text-[#00a650]"></i>
+                    <div class="text-left">
+                        <p class="text-xs font-bold text-white">Compra Garantida</p>
+                        <p class="text-[10px] text-gray-400">Ambiente seguro Mercado Pago</p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-center md:justify-start gap-2">
+                    <span class="bg-white text-[#2d3277] px-2 py-1 rounded-sm text-[9px] font-black tracking-widest flex items-center gap-1"><i data-lucide="banknote" class="w-3 h-3"></i> PIX</span>
+                    <span class="bg-[#1434CB] text-white px-2 py-1 rounded-sm text-[9px] font-black tracking-widest">VISA</span>
+                    <span class="bg-[#EB001B] text-white px-2 py-1 rounded-sm text-[9px] font-black tracking-widest">MASTERCARD</span>
+                    <span class="bg-[#00A4E0] text-white px-2 py-1 rounded-sm text-[9px] font-black tracking-widest">AMEX</span>
+                    <span class="bg-[#1C1C1B] text-white px-2 py-1 rounded-sm text-[9px] font-black tracking-widest">ELO</span>
+                    <span class="bg-[#D3222A] text-white px-2 py-1 rounded-sm text-[9px] font-black tracking-widest">HIPERCARD</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container mx-auto px-6 border-t border-white/10 pt-6 pb-4 text-center flex flex-col items-center">
+            <p class="text-xs text-gray-500">&copy; 2026 Serena Enxovais. Todos os direitos reservados.</p>
+            <p class="mt-2 text-[10px] text-gray-600/60 hover:text-gray-400 transition-colors duration-300 flex items-center justify-center">
+                Created with Gemini and developed by 
+                <a href="https://www.linkedin.com/in/uteshi/" target="_blank" rel="noopener noreferrer" class="text-serena-gold/70 hover:text-serena-gold transition-colors duration-300 ml-1" style="font-family: 'Brush Script MT', 'Lucida Handwriting', 'Segoe UI Historic', cursive; font-size: 15px;">
+                    Uteshi
+                </a>
+            </p>
+        </div>
+    </footer>
 
     <div id="cart-drawer" class="fixed inset-y-0 right-0 w-full md:w-[400px] bg-white shadow-2xl z-[60] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col">
         <div class="bg-serena-green text-white p-5 flex justify-between items-center shadow-md z-10">
@@ -206,12 +410,29 @@
             <div id="frete-module" class="hidden">
                 <label class="text-xs font-bold text-gray-700 uppercase tracking-widest mb-2 block">Calcule o Frete</label>
                 <div class="flex gap-2 mb-3">
-                    <input type="text" id="cep-input" placeholder="00000-000" maxlength="9" oninput="maskCEP(this)" class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-serena-green transition-colors">
-                    <button onclick="calcularFrete()" class="bg-serena-gold text-white px-4 py-2 rounded text-xs font-bold uppercase tracking-widest hover:bg-yellow-600 transition-colors">OK</button>
+                    <input type="text" id="cep-input" placeholder="00000-000" maxlength="9" oninput="window.maskCEP(this)" class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-serena-green transition-colors">
+                    <button onclick="window.calcularFrete()" class="bg-serena-gold text-white px-4 py-2 rounded text-xs font-bold uppercase tracking-widest hover:bg-yellow-600 transition-colors">OK</button>
                 </div>
                 <div id="frete-loading" class="hidden text-center py-2 text-xs text-gray-500"><i data-lucide="loader-2" class="w-4 h-4 animate-spin inline mr-1"></i> Calculando rotas...</div>
                 
                 <div id="frete-options" class="space-y-2 mb-4 hidden"></div>
+
+                <div id="endereco-details" class="hidden space-y-2 mb-4 border-t border-gray-100 pt-3 animate-fade-in">
+                    <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest block">Detalhes da Entrega</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="end-numero" placeholder="Número" class="w-1/3 border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-serena-green">
+                        <input type="text" id="end-complemento" placeholder="Complemento" class="w-2/3 border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-serena-green">
+                    </div>
+                </div>
+
+                <div id="pagamento-module" class="hidden border-t border-gray-100 pt-3 mb-2 animate-fade-in">
+                    <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2 block">Forma de Pagamento</label>
+                    <select id="pagamento-input" class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-serena-green text-gray-700 bg-white">
+                        <option value="PIX">PIX</option>
+                        <option value="Cartão de Crédito">Cartão de Crédito</option>
+                        <option value="Debito">Cartão de Débito</option>
+                    </select>
+                </div>
             </div>
 
             <div class="space-y-2 mt-4 mb-4">
@@ -229,20 +450,50 @@
                 </div>
             </div>
             
-            <button onclick="checkoutWhatsApp()" class="w-full bg-[#25D366] text-white py-4 rounded font-bold uppercase tracking-widest text-[11px] hover:bg-[#1ebd5a] transition shadow-lg flex justify-center items-center gap-2 transform hover:scale-[1.02]">
+            <button onclick="window.checkoutWhatsApp()" class="w-full bg-[#25D366] text-white py-4 rounded font-bold uppercase tracking-widest text-[11px] hover:bg-[#1ebd5a] transition shadow-lg flex justify-center items-center gap-2 transform hover:scale-[1.02]">
                 <i data-lucide="message-circle" class="w-5 h-5"></i> Finalizar no WhatsApp
             </button>
         </div>
     </div>
     <div id="cart-overlay" onclick="toggleCart()" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[55] hidden opacity-0 transition-opacity duration-500"></div>
 
-    <footer class="bg-serena-green text-white pt-20 pb-10 border-t-4 border-serena-gold mt-10">
-        <div class="container mx-auto px-6 text-center">
-            <img src="Logo Serena PNG (fundo transparente).png" alt="Serena Enxovais" class="h-12 object-contain mx-auto mb-6 filter brightness-0 invert">
-            <p class="text-gray-300 text-sm mb-6 max-w-md mx-auto">Redefinindo o conceito de cama posta com a tradição do design italiano.</p>
-            <p class="text-gray-400 text-xs">&copy; 2026 Serena Enxovais. Todos os direitos reservados.</p>
+    <div class="fixed bottom-6 right-6 z-[45] flex flex-col items-end">
+        <div id="wpp-chat" class="hidden flex-col w-[320px] sm:w-[360px] mb-4 bg-[#E5DDD5] rounded-xl shadow-2xl border border-gray-200 overflow-hidden transform transition-all duration-300 origin-bottom-right scale-0">
+            <div class="bg-[#075E54] text-white p-4 flex justify-between items-center shadow-md z-10">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center overflow-hidden">
+                        <img src="Logo Serena PNG (fundo transparente).png" class="h-6 object-contain" alt="Serena">
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm">Atendimento Serena</h4>
+                        <p class="text-[10px] text-gray-200 flex items-center gap-1">
+                            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span> Online agora
+                        </p>
+                    </div>
+                </div>
+                <button onclick="window.toggleWppChat()" class="text-white/80 hover:text-white transition"><i data-lucide="x" class="w-5 h-5"></i></button>
+            </div>
+            
+            <div class="p-4 h-[320px] overflow-y-auto flex flex-col gap-3 custom-scrollbar" id="wpp-messages">
+                <div class="bg-white p-3 rounded-lg rounded-tl-none text-sm text-gray-800 shadow-sm self-start max-w-[85%] relative">
+                    Olá! 👋 Como posso te ajudar a montar a cama dos sonhos hoje? Selecione uma opção:
+                    <div class="absolute top-0 -left-2 w-0 h-0 border-t-[10px] border-t-white border-l-[10px] border-l-transparent"></div>
+                </div>
+                
+                <div class="flex flex-col gap-2 w-full mt-1" id="wpp-options">
+                    <button onclick="window.wppAsk('frete')" class="bg-[#DCF8C6] border border-[#c7efaa] text-green-900 text-xs font-bold py-2.5 px-4 rounded-full shadow-sm hover:scale-[1.02] transition transform text-left">🚚 Prazos e Frete</button>
+                    <button onclick="window.wppAsk('pagamento')" class="bg-[#DCF8C6] border border-[#c7efaa] text-green-900 text-xs font-bold py-2.5 px-4 rounded-full shadow-sm hover:scale-[1.02] transition transform text-left">💳 Formas de Pagamento</button>
+                    <button onclick="window.wppAsk('qualidade')" class="bg-[#DCF8C6] border border-[#c7efaa] text-green-900 text-xs font-bold py-2.5 px-4 rounded-full shadow-sm hover:scale-[1.02] transition transform text-left">✨ É Micropercal mesmo?</button>
+                    <button onclick="window.wppAsk('atendente')" class="bg-[#25D366] text-white text-xs font-bold py-2.5 px-4 rounded-full shadow-md hover:bg-[#1ebd5a] hover:scale-[1.02] transition transform text-center mt-2 flex justify-center items-center gap-2">💬 Falar com Especialista</button>
+                </div>
+            </div>
         </div>
-    </footer>
+
+        <div id="wpp-badge" onclick="window.toggleWppChat()" class="translate-x-[200%] transition-transform duration-1000 ease-out cursor-pointer flex items-center gap-3 bg-[#25D366] text-white px-5 py-3.5 rounded-full shadow-[0_10px_20px_rgba(37,211,102,0.3)] hover:scale-105 transform">
+            <i data-lucide="message-circle" class="w-6 h-6 animate-pulse"></i>
+            <span class="font-bold text-sm tracking-wide">Está com dúvidas?</span>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
@@ -250,10 +501,10 @@
             
             // 1. BASE DE DADOS
             const tamanhoData = {
-                'solteiro': { nome: 'Solteiro', preco: 89.90, precoTxt: 'R$ 99,90', colcha: '1,80m x 2,20m', fronhas: '1 Porta-travesseiro' },
-                'casal':    { nome: 'Casal',    preco: 119.90, precoTxt: 'R$ 129,90', colcha: '2,20m x 2,40m', fronhas: '2 Porta-travesseiros' },
-                'queen':    { nome: 'Queen',    preco: 149.90, precoTxt: 'R$ 159,90', colcha: '2,40m x 2,60m', fronhas: '2 Porta-travesseiros' },
-                'king':     { nome: 'King',     preco: 179.90, precoTxt: 'R$ 189,90', colcha: '2,60m x 2,80m', fronhas: '2 Porta-travesseiros' }
+                'solteiro': { nome: 'Solteiro', preco: 89.90, precoTxt: 'R$ 89,90', colcha: '1,80m x 2,20m', fronhas: '1 Porta-travesseiro' },
+                'casal':    { nome: 'Casal',    preco: 119.90, precoTxt: 'R$ 119,90', colcha: '2,20m x 2,40m', fronhas: '2 Porta-travesseiros' },
+                'queen':    { nome: 'Queen',    preco: 149.90, precoTxt: 'R$ 149,90', colcha: '2,40m x 2,60m', fronhas: '2 Porta-travesseiros' },
+                'king':     { nome: 'King',     preco: 179.90, precoTxt: 'R$ 179,90', colcha: '2,60m x 2,80m', fronhas: '2 Porta-travesseiros' }
             };
 
             const modelos = [
@@ -274,7 +525,7 @@
                     <div class="group flex flex-col w-full bg-white border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden rounded-md" id="prod-${modelo.id}">
                         <div class="relative aspect-[4/3] overflow-hidden bg-gray-50">
                             <img src="COBRE_LEITOS/${modelo.id}/KITS_${modelo.id}.jpeg" alt="Kit ${modelo.nome}" class="w-full h-full object-contain transform group-hover:scale-105 transition duration-1000 ease-out">
-                            <div class="absolute top-0 left-29 flex flex-col gap-2 scale-90 md:scale-100"><span class="bg-serena-green text-white text-[10px] uppercase font-bold px-3 py-1 tracking-widest shadow-md">Design Italiano</span></div>
+                            <div class="absolute top-4 left-4 flex flex-col gap-2 scale-90 md:scale-100"><span class="bg-serena-green text-white text-[10px] uppercase font-bold px-3 py-1 tracking-widest shadow-md">Design Italiano</span></div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="text-center mb-4"><h3 class="text-2xl font-serif text-gray-900 mb-1">Kit Colcha ${modelo.nome}</h3><p class="text-[10px] text-serena-gold font-bold uppercase tracking-[0.2em] mb-2 flex justify-center items-center gap-2"><i data-lucide="shield-check" class="w-3 h-3"></i> Micropercal 260g</p></div>
@@ -329,16 +580,28 @@
             let valorFrete = 0;
             let tipoFrete = "";
             let localidadeFrete = "";
-            const numeroWhatsApp = "5511999999999"; // COLOQUE SEU NÚMERO AQUI
+            const numeroWhatsApp = "5531999999999"; // LEMBRE DE AJUSTAR O NÚMERO AQUI
 
             // Funções Visuais do Carrinho
             window.toggleCart = function() {
                 const drawer = document.getElementById('cart-drawer');
                 const overlay = document.getElementById('cart-overlay');
+                const wppBadge = document.getElementById('wpp-badge');
+                const wppChat = document.getElementById('wpp-chat');
+                
                 if (drawer.classList.contains('translate-x-full')) {
-                    drawer.classList.remove('translate-x-full'); overlay.classList.remove('hidden'); setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+                    drawer.classList.remove('translate-x-full'); 
+                    overlay.classList.remove('hidden'); 
+                    setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+                    
+                    if(wppBadge) wppBadge.style.display = 'none';
+                    if(wppChat && !wppChat.classList.contains('hidden')) { wppChat.classList.add('hidden'); }
                 } else {
-                    drawer.classList.add('translate-x-full'); overlay.classList.add('opacity-0'); setTimeout(() => overlay.classList.add('hidden'), 500);
+                    drawer.classList.add('translate-x-full'); 
+                    overlay.classList.add('opacity-0'); 
+                    setTimeout(() => overlay.classList.add('hidden'), 500);
+                    
+                    if(wppBadge) wppBadge.style.display = 'flex';
                 }
             };
 
@@ -347,7 +610,6 @@
                 const activeBtn = productCard.querySelector('.active-size');
                 const tamanhoNome = activeBtn ? activeBtn.innerText : 'Casal';
                 
-                // Encontra a chave do tamanho ignorando maiúsculas
                 const sizeKey = Object.keys(tamanhoData).find(key => tamanhoData[key].nome === tamanhoNome) || 'casal';
                 const precoValue = tamanhoData[sizeKey].preco;
                 const precoTxt = tamanhoData[sizeKey].precoTxt;
@@ -359,8 +621,13 @@
 
             window.removeFromCart = function(index) {
                 cart.splice(index, 1);
-                // Se esvaziar o carrinho, zera o frete
-                if(cart.length === 0) { valorFrete = 0; tipoFrete = ""; document.getElementById('frete-options').innerHTML = ''; document.getElementById('cep-input').value = ''; }
+                if(cart.length === 0) { 
+                    valorFrete = 0; tipoFrete = ""; 
+                    document.getElementById('frete-options').innerHTML = ''; 
+                    document.getElementById('cep-input').value = ''; 
+                    document.getElementById('endereco-details').classList.add('hidden');
+                    document.getElementById('pagamento-module').classList.add('hidden');
+                }
                 updateCartUI();
             };
 
@@ -393,7 +660,6 @@
                     });
                 }
 
-                // Atualiza Resumo de Valores
                 document.getElementById('cart-subtotal').innerText = subtotalCart.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
                 document.getElementById('cart-frete-value').innerText = valorFrete > 0 ? valorFrete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : (tipoFrete ? "Grátis" : "---");
                 
@@ -402,7 +668,7 @@
                 lucide.createIcons();
             };
 
-            // Módulo de Frete Simulado via ViaCEP (Frontend Seguro)
+            // Módulo de Frete via ViaCEP
             window.maskCEP = function(input) {
                 input.value = input.value.replace(/\D/g, '').replace(/^(\d{5})(\d)/, '$1-$2').substring(0, 9);
             };
@@ -413,31 +679,35 @@
 
                 document.getElementById('frete-loading').classList.remove('hidden');
                 document.getElementById('frete-options').classList.add('hidden');
+                document.getElementById('endereco-details').classList.add('hidden');
+                document.getElementById('pagamento-module').classList.add('hidden');
 
                 try {
-                    // Busca localidade real
                     const res = await fetch(`https://viacep.com.br/ws/${cepInput}/json/`);
                     const data = await res.json();
                     
                     if(data.erro) throw new Error("CEP não encontrado.");
-                    localidadeFrete = `${data.localidade}/${data.uf}`;
+                    
+                    localidadeFrete = `${data.logradouro}, Bairro ${data.bairro}, ${data.localidade}/${data.uf} - CEP: ${data.cep}`;
 
-                    // Lógica de cálculo de frete realista para Front-end
-                    // Sul e Sudeste costumam ser mais baratos. 
                     const ufsSudesteSul = ['SP', 'RJ', 'MG', 'ES', 'PR', 'SC', 'RS'];
                     const isBarato = ufsSudesteSul.includes(data.uf);
-
-                    // Multiplicador por quantidade de itens na sacola
                     const pesoMultiplicador = 1 + ((cart.length - 1) * 0.4); 
-
                     const basePac = isBarato ? 24.90 : 48.90;
                     const baseSedex = isBarato ? 38.90 : 85.90;
 
                     const valorFinalPac = basePac * pesoMultiplicador;
                     const valorFinalSedex = baseSedex * pesoMultiplicador;
-                    const valorFinalTransp = valorFinalSedex * 1.15; // Transportadora 15% a mais que Sedex
+                    const valorFinalTransp = valorFinalSedex * 1.15;
 
-                    renderFreteOptions(valorFinalPac, valorFinalSedex, valorFinalTransp, localidadeFrete);
+                    // Verifica se o CEP é de BH ou Região Metropolitana
+                    const regioesBH = ['Belo Horizonte', 'Contagem', 'Betim', 'Nova Lima', 'Santa Luzia', 'Ribeirão das Neves', 'Sabará', 'Vespasiano', 'Ibirité'];
+                    const isBH = regioesBH.includes(data.localidade);
+
+                    window.renderFreteOptions(valorFinalPac, valorFinalSedex, valorFinalTransp, `${data.localidade}/${data.uf}`, isBH);
+                    
+                    document.getElementById('endereco-details').classList.remove('hidden');
+                    document.getElementById('pagamento-module').classList.remove('hidden');
 
                 } catch (error) {
                     alert("Não foi possível calcular o frete para este CEP no momento.");
@@ -446,11 +716,63 @@
                 }
             };
 
+            window.renderFreteOptions = function(pac, sedex, transp, local, isBH) {
+                const box = document.getElementById('frete-options');
+                box.innerHTML = `<p class="text-[10px] text-gray-500 mb-2 font-medium"><i data-lucide="map-pin" class="w-3 h-3 inline"></i> Enviando para: ${local}</p>`;
+                
+                if (isBH) {
+                    // Se for de BH/Região, mostra o Expresso Fixo como recomendado
+                    box.innerHTML += window.createFreteRadio('Expresso Até 36H', 25.00, 'Preparo em 12h + Logística em 24h', true, true);
+                    window.selectFrete('Expresso Até 36H', 25.00);
+                } else {
+                    // Se for de outro estado/cidade, mantém o padrão
+                    box.innerHTML += window.createFreteRadio('PAC (Econômico)', pac, 8, true);
+                    box.innerHTML += window.createFreteRadio('SEDEX (Expresso)', sedex, 3, false);
+                    box.innerHTML += window.createFreteRadio('Transportadora', transp, 4, false);
+                    window.selectFrete('PAC (Econômico)', pac);
+                }
+                
+                box.classList.remove('hidden');
+                lucide.createIcons();
+            }
+
+            window.createFreteRadio = function(nome, valor, prazoText, isChecked, isBHDelivery = false) {
+                const valorTxt = valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+                const destaque = isChecked ? '<span class="bg-serena-green text-white text-[8px] uppercase px-1.5 py-0.5 rounded ml-2">Recomendado</span>' : '';
+                const prazoStr = typeof prazoText === 'number' ? `Chega em aprox. ${prazoText} dias úteis` : prazoText;
+                
+                // Lógica do Ícone de Informação (Tooltip)
+                let infoIconHtml = '';
+                if (isBHDelivery) {
+                    infoIconHtml = `
+                        <div class="group relative inline-flex items-center ml-1">
+                            <i data-lucide="info" class="w-3.5 h-3.5 text-gray-400 hover:text-serena-gold transition-colors"></i>
+                            <div class="hidden group-hover:block absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 bg-gray-800 text-white text-[10px] p-2.5 rounded shadow-xl z-50 text-center font-normal leading-relaxed whitespace-normal pointer-events-none">
+                                A logística será realizada via Motoboy próprio para distâncias até 5km do galpão, acima disto será despachado pelos Correios Sedex.
+                                <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-800"></div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                return `
+                    <label class="flex items-center justify-between p-2 border ${isChecked ? 'border-serena-green bg-serena-green/5' : 'border-gray-200'} rounded cursor-pointer hover:border-serena-green transition-colors" onclick="window.selectFrete('${nome}', ${valor}, this)">
+                        <div class="flex items-center gap-2 w-[80%]">
+                            <input type="radio" name="frete_op" value="${valor}" ${isChecked ? 'checked' : ''} class="text-serena-green focus:ring-serena-green shrink-0">
+                            <div>
+                                <div class="text-xs font-bold text-gray-800 flex items-center flex-wrap">${nome} ${infoIconHtml} ${destaque}</div>
+                                <p class="text-[9px] text-gray-500 mt-0.5">${prazoStr}</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-bold text-gray-800 shrink-0">${valorTxt}</span>
+                    </label>
+                `;
+            }
+
             function renderFreteOptions(pac, sedex, transp, local) {
                 const box = document.getElementById('frete-options');
                 box.innerHTML = `<p class="text-[10px] text-gray-500 mb-2 font-medium"><i data-lucide="map-pin" class="w-3 h-3 inline"></i> Enviando para: ${local}</p>`;
                 
-                // PAC - Pré Selecionado (Recomendação Serena)
                 box.innerHTML += createFreteRadio('PAC (Econômico)', pac, 8, true);
                 box.innerHTML += createFreteRadio('SEDEX (Expresso)', sedex, 3, false);
                 box.innerHTML += createFreteRadio('Transportadora', transp, 4, false);
@@ -458,7 +780,6 @@
                 box.classList.remove('hidden');
                 lucide.createIcons();
                 
-                // Força a seleção do PAC inicialmente
                 selectFrete('PAC (Econômico)', pac);
             }
 
@@ -482,8 +803,6 @@
             window.selectFrete = function(nome, valor, element = null) {
                 tipoFrete = nome;
                 valorFrete = valor;
-                
-                // Atualiza visual dos radios se foi clicado
                 if(element) {
                     document.querySelectorAll('input[name="frete_op"]').forEach(el => {
                         el.closest('label').classList.remove('border-serena-green', 'bg-serena-green/5');
@@ -493,13 +812,22 @@
                     element.classList.add('border-serena-green', 'bg-serena-green/5');
                     element.querySelector('input').checked = true;
                 }
-                
                 updateCartUI();
             };
 
             // Fechamento no WhatsApp
             window.checkoutWhatsApp = function() {
                 if (cart.length === 0) { alert("Sua sacola está vazia!"); return; }
+
+                const cepInput = document.getElementById('cep-input').value;
+                const endNumero = document.getElementById('end-numero').value;
+                const endComplemento = document.getElementById('end-complemento').value;
+                const pagamento = document.getElementById('pagamento-input') ? document.getElementById('pagamento-input').value : 'A Combinar';
+
+                if (cepInput.length > 0 && endNumero.trim() === '') {
+                    alert("Por favor, informe o número do endereço de entrega.");
+                    return;
+                }
 
                 let texto = "Olá, Serena Enxovais! Gostaria de finalizar meu pedido VIP:%0A%0A";
                 
@@ -511,17 +839,113 @@
                 if (valorFrete > 0) {
                     const freteFormatado = valorFrete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
                     texto += `%0A🚚 *Frete (${tipoFrete}):* ${freteFormatado}`;
-                    texto += `%0A📍 *Destino:* ${localidadeFrete}`;
+                    let endFinal = localidadeFrete + `, Número: ${endNumero}`;
+                    if(endComplemento) endFinal += ` (${endComplemento})`;
+                    texto += `%0A📍 *Destino:* ${endFinal}`;
                 } else {
                     texto += `%0A🚚 *Frete:* A Combinar/Calcular`;
                 }
 
                 const totalFinal = (subtotalCart + valorFrete).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
                 texto += `%0A%0A💳 *TOTAL DO PEDIDO:* ${totalFinal}`;
-                texto += `%0A%0AAguardo as orientações para o pagamento!`;
+                texto += `%0A💲 *Forma de Pagamento Escolhida:* ${pagamento}`;
+                texto += `%0A%0AAguardo o link de pagamento/chave PIX para confirmar!`;
 
                 const linkWpp = `https://wa.me/${numeroWhatsApp}?text=${texto}`;
-                window.open(linkWpp, '_blank');
+                
+                const linkElement = document.createElement('a');
+                linkElement.href = linkWpp;
+                linkElement.target = '_blank';
+                document.body.appendChild(linkElement);
+                linkElement.click();
+                document.body.removeChild(linkElement);
+            };
+
+            // ==========================================
+            // WIDGET WHATSAPP INTELIGENTE (FILTRO)
+            // ==========================================
+            setTimeout(() => {
+                const badge = document.getElementById('wpp-badge');
+                if(badge) badge.classList.remove('translate-x-[200%]');
+            }, 5000);
+
+            window.toggleWppChat = function() {
+                const badge = document.getElementById('wpp-badge');
+                const chat = document.getElementById('wpp-chat');
+                
+                if (chat.classList.contains('hidden')) {
+                    chat.classList.remove('hidden');
+                    setTimeout(() => chat.classList.remove('scale-0'), 10);
+                    badge.classList.add('hidden');
+                } else {
+                    chat.classList.add('scale-0');
+                    setTimeout(() => {
+                        chat.classList.add('hidden');
+                        badge.classList.remove('hidden');
+                    }, 300);
+                }
+            };
+
+            window.wppAsk = function(question) {
+                const messages = document.getElementById('wpp-messages');
+                const options = document.getElementById('wpp-options');
+                
+                if(options) options.style.display = 'none'; 
+                
+                let userText = "";
+                let botResponse = "";
+                let showOptionsAgain = true;
+
+                if(question === 'frete') {
+                    userText = "🚚 Prazos e Frete";
+                    botResponse = "Trabalhamos com PAC, Sedex e logística própria(Belo Horizonte e Região). O prazo varia conforme o seu CEP e pode ser calculado na sacola. O despacho é realizado em até 24h úteis após o pagamento! 📦";
+                } else if(question === 'pagamento') {
+                    userText = "💳 Formas de Pagamento";
+                    botResponse = "Para sua segurança, aceitamos PIX (aprovação na hora), Cartão de Débito ou Cartão de Crédito via link de pagamento.";
+                } else if(question === 'qualidade') {
+                    userText = "✨ É Micropercal mesmo?";
+                    botResponse = "Sim! Nossos kits são de Micropercal 260g (altíssima gramatura). Têm toque super macio, acabamento em viés e tecnologia que não faz bolinhas. É padrão de hotelaria! 🛏️";
+                } else if(question === 'atendente') {
+                    userText = "💬 Falar com Especialista";
+                    botResponse = "Perfeito! Vou te transferir para a nossa equipe. Clique no botão abaixo para abrir o WhatsApp oficial da loja:";
+                    showOptionsAgain = false;
+                }
+
+                messages.insertAdjacentHTML('beforeend', `
+                    <div class="bg-[#DCF8C6] p-3 rounded-lg rounded-tr-none text-sm text-gray-800 shadow-sm self-end max-w-[85%] mt-3 relative">
+                        ${userText}
+                        <div class="absolute top-0 -right-2 w-0 h-0 border-t-[10px] border-t-[#DCF8C6] border-r-[10px] border-r-transparent"></div>
+                    </div>
+                `);
+                
+                messages.scrollTop = messages.scrollHeight;
+
+                setTimeout(() => {
+                    messages.insertAdjacentHTML('beforeend', `
+                        <div class="bg-white p-3 rounded-lg rounded-tl-none text-sm text-gray-800 shadow-sm self-start max-w-[85%] mt-3 relative">
+                            ${botResponse}
+                            <div class="absolute top-0 -left-2 w-0 h-0 border-t-[10px] border-t-white border-l-[10px] border-l-transparent"></div>
+                        </div>
+                    `);
+                    
+                    if(showOptionsAgain) {
+                        if(options) {
+                            options.style.display = 'flex';
+                            messages.appendChild(options);
+                        }
+                    } else {
+                        const numZap = typeof numeroWhatsApp !== 'undefined' ? numeroWhatsApp : '5531999999999';
+                        const linkWppReal = `https://wa.me/${numZap}?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20atendente.`;
+                        
+                        messages.insertAdjacentHTML('beforeend', `
+                            <a href="${linkWppReal}" target="_blank" class="w-full bg-[#25D366] text-white text-sm font-bold py-3 rounded-lg mt-4 flex justify-center items-center gap-2 hover:bg-[#1ebd5a] transition shadow-md">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                Ir para o WhatsApp
+                            </a>
+                        `);
+                    }
+                    messages.scrollTop = messages.scrollHeight;
+                }, 800);
             };
         });
     </script>
